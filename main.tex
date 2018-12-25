@@ -1,0 +1,215 @@
+\documentclass[a5paper]{article}
+%\documentclass[13pt, a4paper]{extarticle}
+
+\usepackage[margin=0.25in]{geometry}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\usepackage{ulem}
+
+\usepackage{indentfirst}
+
+
+\usepackage{./mystyle}
+
+\title{Math Snippets}
+\author{Wei Sun}
+
+\begin{document}
+
+%\huge
+
+\maketitle
+
+%\begin{abstract}
+%Your abstract.
+%\end{abstract}
+
+\section{Introduction}
+
+
+\section{Topological $K$-theory, algebraic $K$-theory, Bott periodicity and the six-term exact sequence}
+
+
+\subsection{Topological $K$-theory}
+
+
+Topological $K$-theory is for compact Hausdorff spaces.
+
+\twomm
+
+Let $X$ be a compact Hausdorff spaces. We define $K^*(X)$ to be made up of the Gronthendick group of $V(X)$, where $V(X)$, roughly speaking, is the semi-group formed by the complex vector bundles over $X$.
+
+Note that we use $K^*(X)$ instead of $K_*(X)$ because this is a contravariant functor.
+
+
+The reason we want $X$ to be compact is \todo{QQQ} ???
+
+The reason we want $X$ to be Hausdorff is \todo{QQQ} ???
+
+The addition on $V(X)$ is defined in the natural way. Just need to note that this addition might not satisfy cancellation, which is a deep topological fact.
+
+About Bott periodicity.
+
+Let $X$ be a compact Hausdorff space. We have already defined $K(X)$, which is an abelian group (For more details, we start with an abelian semigroup, then Gronthedick it).
+
+Besides, as in the Atiyah book, a ring structure is also defined for $K(X)$. Roughly speaking, given two complex vector bundes $E$ and $F$ over $X$, we can define the vector bundle $E \otimes F$, which is a complex vector bundle over $X$.
+
+
+
+
+
+
+%\begin{figure}
+%\centering
+%\includegraphics[width=0.3\textwidth]{frog.jpg}
+%\caption{\label{fig:frog}This frog was uploaded via the project menu.}
+%\end{figure}
+
+
+%\subsection{How to add Comments}
+
+%Comments can be added to your project by clicking on the comment icon in the toolbar above. 
+
+% * <john.hammersley@gmail.com> 2016-07-03T09:54:16.211Z:
+%
+% Here's an example comment!
+%
+%To reply to a comment, simply click the reply button in the lower right corner of the comment, and you can close them when you're done.
+
+%Comments can also be added to the margins of the compiled PDF using the todo command, \todo{Here's a comment in the margin!} as shown in the example on the right. You can also add inline comments:
+
+%\todo[inline, color=green!40]{This is an inline comment.}
+
+
+
+
+\section{On topological entropy}
+
+
+
+
+\subsection{On definitions and basics topological entropies}
+
+0. Below is some basics on basics, which is related to the definition of topological entropy.
+
+\twomm
+
+Some basic facts we have:
+
+\vspace{2mm}
+
+{\bf Fact:} If there is a sequence $\{ a_n \}$ such that $a_{m + n} \leq a_m + a_n + C$ for certain constant $C$ and for all $m, n$. Then $\lim \frac{a_n}{n}$ always exists and this limit can never be $+ \infty$. 
+
+\vspace{2mm}
+
+Note: For a sequence satisfying $a_{m + n} \leq a_m + a_n + C$ for all $m, n$, one example is just a decreasing positive sequence.
+
+\vspace{2mm}
+
+
+{\bf Note}: Under the same setup, it is possible that $\lim \frac{a_n}{n}$ might be $- \infty$. For example, consider $a_n = - n^2$ and with $C = 0$.
+
+
+\vspace{2mm}
+
+
+1. Topological entropy is invariant under conjugacies (as the value is defined as the supremum of blabla).
+
+\twomm
+
+2. \sout{The topological entropy of $\alpha$ and $\alpha^{-1}$ might not be the same (I should have a concrete example for it).}
+
+	Using $H(X, \alpha)$ to denote the topological entropy of dynamical system $(X, \alpha)$, then $H(X, \alpha) = H(X, \alpha^{-1})$.
+    
+    That is because of the following fact:
+    
+    $$ \#(C \vee \alpha^{-1}(C) \vee \cdots \vee \alpha^{k}(C) = \#(\alpha^{k}(C) \vee \alpha^{k - 1}(C) \vee \cdots \vee C) $$
+    
+    Note: As for mean dimension, considering a homeomorphism $T$ over the space $X$, then the mean dimension of $T$ equals the mean dimension of $T^{-n}$.
+
+\twomm
+
+3. Given a compact Hausdorff space $X$, consider the range of topological entropy, is it surely an interval??
+	
+    Definitely not. Consider the space made up of finitely many point with discrete topology on it.
+    
+	Fact: For certain space $X$, we know the range of entropies for all homeomorphisms is not an interval.
+    
+    For example, let $X = \T$. Then each irrational rotation has entropy zero.
+
+
+\twomm
+
+4. Given a compact Hausdorff space $X$, the topological entropy function (over homeomorphisms) might not be continuous as for homeomorphisms on $X$. One typical example is the rotations on $\T$.
+
+\twomm
+
+5. How to derive
+
+\twomm
+
+
+6. As indicated in the big textbook, the topological entropy of all homeomorphisms on the circle $\T$ is zero. How to prove it?
+
+	
+   In case it is a rational rotation, easy to show that the topological entropy is zero. Just check the definition.
+   
+   What if it is an irrational rotation? What is the entropy of irrational rotation? %How the mixing is done? Do we have any ``patterns"?
+   
+   One cheating approach is to use the ``metric version'' of definition for topological entropy. For irrational rotations, as it preserve the metric, it follows that they all have topological entropy zero.
+  
+What to do in this case?
+
+
+    Find something that works like a charm?
+    
+    What can we do?
+    
+  	
+    
+\section{KK-theory}
+
+KK-theory. It is bi-variant homology/cohomology theory.
+
+QQQ....  yyy
+
+Before dealing with KK-theory, it might be a good idea to deal with K-theory first.
+
+We start with topological $K$-theory for compact Hausdorff space $X$. 
+
+... QQQ??? zzz
+
+So far, we have defined and discussed $K( C(X) )$ (indeed, we covered $K^*(X)$, which is not a strict cohomology theory as it violates the Dimension Axiom.
+
+Given something of ...
+
+
+
+
+
+
+    
+    
+   
+   
+
+   
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

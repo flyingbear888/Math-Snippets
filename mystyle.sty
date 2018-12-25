@@ -1,0 +1,690 @@
+% Inclusion of other packages.
+%\usepackage[all]{xy}  %use the package xypic
+
+
+
+%General Inclusions
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{verbatim}
+
+%Enable \NewDocumentEnvironment or \NewDocumentCommand
+\usepackage{xparse}
+
+
+%Enable color
+\usepackage{color}
+
+% Counters
+%\newcounter{problem_counter}
+%\setcounter{problem_counter}{0}
+
+% Self-defined math symbols
+
+\newcommand{\dpstyle}{\displaystyle}
+
+\providecommand{\Frac}[2]{\displaystyle\frac{#1}{#2}}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+
+%% ----------------------------- Math Abbreviations defined by Wei --------------------------------- %%
+
+\providecommand{\WLOG}{Without loss of generality}
+\providecommand{\Wlog}{Without loss of generality}
+\providecommand{\wlog}{without loss of generality}
+
+\providecommand{\Tvs}{Topological vector space}
+\providecommand{\tvs}{topological vector space}
+
+% Self-defined commands
+%\providecommand{\np}{\vspace{1cm}}
+
+%\providecommand{\ques}{\addtocounter{problem_counter}{+1} \textbf{Question \arabic{problem_counter}} }
+
+
+%
+%
+%
+%        Environments defined by me.
+%
+%
+%
+
+%\newenvironment{king}
+%{\rule{1ex}{1ex}\hspace{\stretch{1}}}
+%{\hspace{\stretch{1}}\rule{1ex}{1ex}}
+
+
+%\newenvironment{theorem}[1][]
+%{\vspace{2mm} \textbf{Theorem #1:} }
+%{\vspace{2mm}}
+
+%\newcommand{generateMyEnvironment1}[1]{
+%	\NewDocumentEnvironment{questionAA}{o}
+%	{
+%		\vspace{2mm}
+%		\noindent
+%		%\medskip
+%		% \smallskip
+% 		\unskip % Set the line break in a paragraph to 0.
+%		\IfNoValueTF {#1}
+%	{
+%		%DoSomethingJustWith{#1}Empty
+%		 \textbf{Question:}
+%	}
+%	{
+%		%\DoSomethingWith{#1}NonEmpty
+%		 \textbf{Question #1:}
+%	}
+%	}{
+%	\vspace{2mm}
+%	}
+%}
+
+
+\NewDocumentEnvironment{theorem}{o}
+{
+	\vspace{2mm}
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Theorem:}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Theorem #1:}
+	}
+	\vspace{2mm}
+}
+
+%\newenvironment{example}[1][]
+%{\vspace{2mm} \textbf{Example #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{example}{o}
+{
+        \vspace{2mm}
+        \noindent
+        \unskip % Set the line break in a paragraph to 0.
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Example:} \hspace{-1em}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Example #1:} \hspace{-1em}
+	}
+	%\vspace{2mm}
+}{\vspace{2mm}}
+
+% \newenvironment{definition}[1][]
+% {\vspace{2mm} \textbf{Definition #1:} \begin{it}}
+% {\end{it} \vspace{2mm}}
+
+%\newenvironment{lemma}[1][]
+%{\vspace{2mm} \textbf{Lemma #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{lemma}{o}
+{
+	\vspace{2mm}
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Lemma:}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Lemma #1:}
+	}
+	\vspace{2mm}
+}
+
+
+%\newenvironment{definition}[1][]
+%{\vspace{2mm} \textbf{Definition #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{definition}{o}
+{
+	\vspace{2mm}
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Definition:}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Definition #1:}
+	}
+	\vspace{2mm}
+}
+
+%\newenvironment{myquestion}[1][]
+%{\vspace{2mm} \textbf{Question #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{myquestion}{o}
+{
+	\vspace{2mm}
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Question:}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Question #1:}
+	}
+	\vspace{2mm}
+}
+
+\NewDocumentEnvironment{question}{o}
+{
+        \vspace{2mm}
+        \noindent
+        %\medskip
+        % \smallskip
+        \unskip % Set the line break in a paragraph to 0.
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Question:}   \hspace{-1em}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Question #1:}    \hspace{-1em}
+	}
+	%\vspace{2mm}
+}{\vspace{2mm}}
+
+
+%\newenvironment{proposition}[1][]
+%{\vspace{2mm} \textbf{Proposition #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{proposition}{o}
+{
+	\vspace{2mm}
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Proposition:}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Proposition #1:}
+	}
+	\vspace{2mm}
+}
+
+
+
+%\newenvironment{notation}[1][]
+%{\vspace{2mm} \textbf{Notation #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{notation}{o}
+{
+	\vspace{2mm}
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Notation:}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Notation #1:}
+	}
+	\vspace{2mm}
+}
+
+
+%\newenvironment{note}[1][]
+%{\vspace{2mm} \textbf{Note #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{note}{o}
+{
+	\vspace{2mm}
+	\noindent
+	\unskip
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Note:}   \hspace{-1.2em}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Note #1:}    \hspace{-1.2em}
+	}
+	%\vspace{2mm}
+}{\vspace{2mm}}
+
+
+%\newenvironment{guess}[1][]
+%{\vspace{2mm} \textbf{Guess #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{guess}{o}
+{
+	\vspace{2mm}
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Guess:}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Guess #1:}
+	}
+	\vspace{2mm}
+}
+
+%\newenvironment{claim}[1][]
+%{\vspace{2mm} \textbf{Claim #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{claim}{o}
+{
+	\vspace{2mm}
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Claim:}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Claim #1:}
+	}
+	\vspace{2mm}
+}
+
+%\newenvironment{remark}[1][]
+%{\vspace{2mm} \textbf{Remark #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{remark}{o}
+{
+        \vspace{2mm}
+        \noindent
+        \unskip % Set the line break in a paragraph to 0.
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Remark:}    \hspace{-1em}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Remark #1:}    \hspace{-1em}
+	}
+	%\vspace{2mm}
+}{\vspace{2mm}}
+
+%\newenvironment{ques}[1][]
+%{\vspace{2mm} \textbf{Question #1:} }
+%{\vspace{2mm}}
+
+%\newenvironment{fact}[1][]
+%{\vspace{2mm} \textbf{FACT #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{fact}{o}
+{
+	
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \vspace{2mm} \textbf{FACT:} \vspace{2mm}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		\vspace{2mm}
+		
+		 \textbf{FACT #1:} \vspace{2mm}
+	}
+}
+
+%\newenvironment{verification}[1][]
+%{\vspace{2mm} \textbf{Verification #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{verification}{o}
+{
+	\vspace{2mm}
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Verification:}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Verification #1:}
+	}
+	\vspace{2mm}
+}
+
+\NewDocumentEnvironment{_check}{o}
+{
+	\vspace{2mm}
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Check:}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Check #1:}
+	}
+	\vspace{2mm}
+}
+
+%\newenvironment{corollary}[1][]
+%{\vspace{2mm} \textbf{Corollary #1:} }
+%{\vspace{2mm}}
+\NewDocumentEnvironment{corollary}{o}
+{
+	\vspace{2mm}
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Corollary:}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Corollary #1:}
+	}
+	\vspace{2mm}
+}
+
+\NewDocumentEnvironment{exercise}{o}
+{
+	\vspace{2mm}
+	\IfNoValueTF {#1}
+	{
+		%DoSomethingJustWith{#1}Empty
+		 \textbf{Exercise:}
+	}
+	{
+		%\DoSomethingWith{#1}NonEmpty
+		 \textbf{Exercise #1:}
+	}
+	\vspace{2mm}
+}
+
+
+\providecommand{\ques}[1]{\vspace{2mm} \textbf{Question: #1} \vspace{2cm}}
+
+\providecommand{\bow}{\vspace{2mm}}  %   beginning of work
+\providecommand{\eow}{\vspace{1mm}} %    end of work
+
+% Text Color Abbreviations
+
+\providecommand{\red}[1]{\textcolor{red}{#1}}
+\providecommand{\blue}[1]{\textcolor{blue}{#1}}
+
+% General Math Abbreviations
+
+\providecommand{\A}{\mathbb{A}}
+\providecommand{\B}{\mathbb{B}}
+\providecommand{\C}{\mathbb{C}}
+%\newcommand{\C}{\mathbb{C}}
+\providecommand{\CC}{\mathbb{C}}
+\providecommand{\D}{\mathbb{D}}
+\providecommand{\E}{\mathbb{E}}
+\providecommand{\F}{\mathbb{F}}
+\providecommand{\G}{\mathbb{G}}
+\providecommand{\H}{\mathbb{H}}
+\providecommand{\I}{\mathbb{I}}
+\providecommand{\J}{\mathbb{J}}
+\providecommand{\K}{\mathbb{K}}
+\providecommand{\L}{\mathbb{L}}
+\providecommand{\M}{\mathbb{M}}
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\O}{\mathbb{O}}
+\providecommand{\P}{\mathbb{P}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\S}{\mathbb{S}}
+\providecommand{\T}{\mathbb{T}}
+\providecommand{\U}{\mathbb{U}}
+\providecommand{\V}{\mathbb{V}}
+\providecommand{\W}{\mathbb{W}}
+\providecommand{\X}{\mathbb{X}}
+\providecommand{\Y}{\mathbb{Y}}
+\providecommand{\Z}{\mathbb{Z}}
+
+\providecommand{\CC}{\mathbb{C}}
+
+
+\providecommand{\CalA}{\mathcal{A}}
+\providecommand{\CalB}{\mathcal{B}}
+\providecommand{\CalC}{\mathcal{C}}
+\providecommand{\CalD}{\mathcal{D}}
+\providecommand{\CalE}{\mathcal{E}}
+\providecommand{\CalF}{\mathcal{F}}
+\providecommand{\CalG}{\mathcal{G}}
+\providecommand{\CalH}{\mathcal{H}}
+\providecommand{\CalI}{\mathcal{I}}
+\providecommand{\CalJ}{\mathcal{J}}
+\providecommand{\CalK}{\mathcal{K}}
+\providecommand{\CalL}{\mathcal{L}}
+\providecommand{\CalM}{\mathcal{M}}
+\providecommand{\CalN}{\mathcal{N}}
+\providecommand{\CalO}{\mathcal{O}}
+\providecommand{\CalP}{\mathcal{P}}
+\providecommand{\CalQ}{\mathcal{Q}}
+\providecommand{\CalR}{\mathcal{R}}
+\providecommand{\CalS}{\mathcal{S}}
+\providecommand{\CalT}{\mathcal{T}}
+\providecommand{\CalU}{\mathcal{U}}
+\providecommand{\CalV}{\mathcal{V}}
+\providecommand{\CalW}{\mathcal{W}}
+\providecommand{\CalX}{\mathcal{X}}
+\providecommand{\CalY}{\mathcal{Y}}
+\providecommand{\CalZ}{\mathcal{Z}}
+
+\providecommand{\ideal}{\vartriangleleft}
+
+\providecommand{\bs}{\backslash}
+%\providecommand{\spec}[1]{\mbox{sp(} #1 \mbox{)}}
+\providecommand{\tbc}{\textbf{To be continued...}}
+\providecommand{\fact}{\textbf{Fact: \,}}
+\providecommand{\ans}{\textbf{Answer: \,}}
+\providecommand{\pf}{\textbf{Proof: \,}}
+% Seems that \def is reserved by latex. \providecommand{\def}{\textbf{Definition: \,}}
+%\providecommand{\Def}{\textbf{Definition: \,}}
+%\providecommand{\cor}{\textbf{Cor. \,}}
+%\providecommand{\claim}{\vspace{2mm} \textbf{Claim: \,} \vspace{2mm} }
+%\providecommand{\claimone}{\vspace{2mm} \textbf{Claim 1: \,} \vspace{2mm} }
+%\providecommand{\claimtwo}{\vspace{2mm} \textbf{Claim 2: \,} \vspace{2mm} }
+%\providecommand{\claimthree}{\vspace{2mm} \textbf{Claim 3: \,} \vspace{2mm} }
+%\providecommand{\claimfour}{\vspace{2mm} \textbf{Claim 3: \,} \vspace{2mm} }
+%\providecommand{\remark}{\vspace{1mm} \textbf{Remark: \,} \vspace{1mm}}
+%\providecommand{\remarkone}{\vspace{1mm} \textbf{Remark 1: \,} \vspace{1mm}}
+%\providecommand{\remarktwo}{\vspace{1mm} \textbf{Remark 2: \,} \vspace{1mm}}
+%\providecommand{\remarkthree}{\vspace{1mm} \textbf{Remark 3: \,} \vspace{1mm}}
+%\providecommand{\remarkfour}{\vspace{1mm} \textbf{Remark 4: \,} \vspace{1mm}}
+\providecommand{\sol}{\textbf{Solution: \,}}
+\providecommand{\rk}{\textbf{Remark: \,}}
+\providecommand{\note}{\textbf{Note: \,}}
+%\providecommand{\eg}{\textbf{Example: \,}} % Commented off by Wei, as I enjoy typing the whole word. Also, I already defined eg as a Thm environment.
+\providecommand{\aut}[1]{\mbox{aut(} #1 \mbox{)}}
+%\providecommand{\nbhd}{\mathrm{nbhd}}
+\providecommand{\ind}{\mbox{ind}}
+\providecommand{\projn}{\mbox{projn}}
+%\providecommand{\id}{\mbox{id}}
+
+%\providecommand{\defn}{{definition}}  % Commented off by Wei, as I enjoy typing the whole word. Also, I already defined defn as a Thm environment.
+
+\providecommand{\ad}{\mbox{ad}}
+%\providecommand{\diag}{\mbox{diag}}
+
+
+\providecommand{\codim}{\mbox{codim}}
+\providecommand{\coker}{\mbox{coker}}
+\providecommand{\img}{\mbox{img}}
+
+% C^* algebra abbreviations
+\providecommand{\CA}{$C^*$-algebra}
+
+
+\providecommand{\Her}{\mbox{Her}}
+
+
+\providecommand{\mdim}{\mbox{mdim}}
+\providecommand{\lebdim}{\mbox{Dim}_{\scriptsize \mbox{Leb}}}
+
+%\providecommand{\tsr}[1]{\mbox{tsr(} #1 \mbox{)}}
+
+% type-setting abbreviations
+\providecommand{\onemm}{\vspace{1mm}}
+\providecommand{\twomm}{\vspace{2mm}}
+\providecommand{\fivemm}{\vspace{5mm}}
+\providecommand{\onecm}{\vspace{1cm}}
+\providecommand{\twocm}{\vspace{2cm}}
+\providecommand{\threecm}{\vspace{3cm}}
+\providecommand{\fourcm}{\vspace{4cm}}
+\providecommand{\fivecm}{\vspace{5cm}}
+
+% new commands / shorthand notations from Chris Phillips's template file.
+
+\theoremstyle{definition}
+%\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{thm}{Theorem}[section]
+%\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prp}[thm]{Proposition}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{cnj}[thm]{Conjecture}
+\newtheorem{cnv}[thm]{Convention}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{ntn}[thm]{Notation}
+\newtheorem{exa}[thm]{Example}
+\newtheorem{pbm}[thm]{Problem}
+\newtheorem{wrn}[thm]{Warning}
+\newtheorem{qst}[thm]{Question}
+% \newenvironment{pff}{{\emph{Proof:}}}{\QED}
+
+% My theorem style abbreviations.
+\newtheorem{defn}[thm]{Definition}
+%\newtheorem{dfn}[thm]{Definition}
+%\newtheorem{prop}[thm]{Proposition}
+%\newtheorem{prp}[thm]{Proposition}
+%\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}[thm]{Example}
+%\newtheorem{rmk}[thm]{Remark}
+
+
+% Seems that {def} is reserved by latex.
+%\newtheorem{def}[thm]{Definition}
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\beqr}{\begin{eqnarray*}}
+\newcommand{\eeqr}{\end{eqnarray*}}
+\newcommand{\bal}{\begin{align*}}
+\newcommand{\eal}{\end{align*}}
+\newcommand{\bei}{\begin{itemize}}
+\newcommand{\eei}{\end{itemize}}
+\newcommand{\limi}[1]{\lim_{{#1} \to \infty}}
+
+\newcommand{\af}{\alpha}
+\newcommand{\bt}{\beta}
+\newcommand{\gm}{\gamma}
+\newcommand{\dt}{\delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\zt}{\zeta}
+\newcommand{\et}{\eta}
+\newcommand{\ch}{\chi}
+\newcommand{\io}{\iota}
+\newcommand{\te}{\theta}
+\newcommand{\ld}{\lambda}
+\newcommand{\sm}{\sigma}
+\newcommand{\kp}{\kappa}
+\newcommand{\ph}{\varphi}
+\newcommand{\ps}{\psi}
+\newcommand{\rh}{\rho}
+\newcommand{\om}{\omega}
+\newcommand{\ta}{\tau}
+\newcommand{\up}{\upsilon}
+
+\newcommand{\Gm}{\Gamma}
+\newcommand{\Dt}{\Delta}
+\newcommand{\Et}{\Eta}
+\newcommand{\Th}{\Theta}
+\newcommand{\Ld}{\Lambda}
+\newcommand{\Sm}{\Sigma}
+\newcommand{\Ph}{\Phi}
+\newcommand{\Ps}{\Psi}
+\newcommand{\Om}{\Omega}
+
+% I have defined \Q, \Z, ...
+
+%\newcommand{\Q}{{\mathbb{Q}}}
+%\newcommand{\Z}{{\mathbb{Z}}}
+%\newcommand{\R}{{\mathbb{R}}}
+%\newcommand{\C}{{\mathbb{C}}}
+%\newcommand{\N}{{\mathbb{N}}}
+
+\pagenumbering{arabic}
+
+\newcommand{\inv}{{\mathrm{inv}}}
+\newcommand{\tsr}{{\mathrm{tsr}}}
+\newcommand{\Tr}{{\mathrm{Tr}}}
+\newcommand{\id}{{\mathrm{id}}}
+\newcommand{\ev}{{\mathrm{ev}}}
+\newcommand{\sint}{{\mathrm{int}}}
+\newcommand{\diam}{{\mathrm{diam}}}
+\newcommand{\dist}{{\mathrm{dist}}}
+\newcommand{\sa}{{\mathrm{sa}}}
+\newcommand{\spec}{{\mathrm{sp}}}
+\newcommand{\Prim}{{\mathrm{Prim}}}
+\newcommand{\diag}{{\mathrm{diag}}}
+\newcommand{\supp}{{\mathrm{supp}}}
+\newcommand{\rank}{{\mathrm{rank}}}
+\newcommand{\sgn}{{\mathrm{sgn}}}
+\newcommand{\card}{{\mathrm{card}}}
+\newcommand{\Aut}{{\mathrm{Aut}}}
+\newcommand{\Ad}{{\mathrm{Ad}}}
+\newcommand{\Aff}{{\mathrm{Aff}}}
+
+\newcommand{\dirlim}{\displaystyle \lim_{\longrightarrow}} \newcommand{\Mi}{M_{\infty}}
+
+\newcommand{\andeqn}{\,\,\,\,\,\, {\mbox{and}} \,\,\,\,\,\,} \newcommand{\QED}{\rule{0.4em}{2ex}}
+\newcommand{\ts}[1]{{\textstyle{#1}}}
+\newcommand{\ds}[1]{{\displaystyle{#1}}}
+\newcommand{\ssum}[1]{{\ts{ {\ds{\sum}}_{#1} }}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\wolog}{without loss of generality}
+\newcommand{\Wolog}{Without loss of generality}
+\newcommand{\Tfae}{The following are equivalent}
+\newcommand{\tfae}{the following are equivalent}
+\newcommand{\ifo}{if and only if}
+\newcommand{\wrt}{with respect to}
+
+\newcommand{\ca}{$C^*$-algebra}
+\newcommand{\uca}{unital C*-algebra}
+\newcommand{\usa}{unital subalgebra}
+\newcommand{\hm}{homomorphism}
+\newcommand{\uhm}{unital homomorphism}
+\newcommand{\am}{automorphism}
+\newcommand{\fd}{finite dimensional}
+\newcommand{\tst}{tracial state}
+\newcommand{\hsa}{hereditary subalgebra}
+
+\newcommand{\pj}{projection}
+\newcommand{\mops}{mutually orthogonal \pj s}
+\newcommand{\nzp}{nonzero projection}
+\newcommand{\mvnt}{Murray-von Neumann equivalent}
+\newcommand{\mvnc}{Murray-von Neumann equivalence}
+
+\newcommand{\ct}{continuous}
+\newcommand{\cfn}{continuous function}
+\newcommand{\nbhd}{neighborhood}
+\newcommand{\cms}{compact metric space}
+\newcommand{\cpt}{compact Hausdorff}
+\newcommand{\chs}{compact Hausdorff space}
+\newcommand{\hme}{homeomorphism}
+\newcommand{\mh}{minimal homeomorphism}
+\newcommand{\mf}{manifold}
+\newcommand{\cmf}{compact smooth \mf}
+
+\newcommand{\cp}{crossed product}
+\newcommand{\tgca}{transformation group \ca}
+\newcommand{\tggp}{transformation group groupoid}
